@@ -9,7 +9,8 @@ export const Gallery = ({ data }: { data: typeof COUNTRY_LIST }) => {
 		<ul className={s.gallery}>
 			{data.map((item, index) => (
 				<li key={index}>
-					<Link href={`/list?country=${item.slug}`}>
+					<Link 
+						href={{pathname:'/list', query:{country:item.slug}}}>
 						<Image
 							src={item.image_url}
 							alt={item.name}
