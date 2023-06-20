@@ -22,3 +22,36 @@ main {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+.center-flex {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.wd-30 {
+  padding: 40px;
+  width: 30%;
+}
+
+input {
+    animation: show-share-modal .5s linear forwards;
+    background: #fff;
+    border: .5px solid #b9bed2;
+    border-radius: 5px;
+    padding: 0 8px;
+    margin-bottom: 10px;
+}
+
+button {
+  border: .5px solid #b9bed2;
+  border-radius: 5px;
+  background-color: blue;
+  color: white;
+  width: 180px;
+  margin-top: 30px;
+}

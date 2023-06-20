@@ -1,4 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+//@ts-nocheck
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { delay } from '@/lib/delay';
@@ -9,8 +10,8 @@ export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
-	const slug = req.query.slug;
-	const resort = await prisma.resort.FindBySlug(slug);
+	const data = req.query.slug;
+	const resort = await prisma.resort.findFirst({ where: { slug: data} });
 	// const resort = resorts.find((resort) => resort.slug === slug);
 	
 	await delay(2000);
