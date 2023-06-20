@@ -19,9 +19,13 @@ export default function Page() {
 
 	const getSlug = async () => {
 		setLoading(true)
-		const response = await fetch(url)
-		const data = await response.json();
-		setdata(data)
+		await fetch(url)
+		.then(async (res) => {
+			const data = await res.json();
+			setdata(data)
+		}).catch((err) => {
+			console.log(err)
+		})
 		setLoading(false)
 	}
 

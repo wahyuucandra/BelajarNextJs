@@ -11,9 +11,15 @@ export const Sidebar = () => {
 	const [data, setdata] = useState([]);
 
 	const getCountries = async () => {
-		const response = await fetch(url)
-		const data = await response.json();
-		setdata(data)
+		setLoading(true)
+		await fetch(url)
+		.then(async (res) => {
+			const data = await res.json();
+			setdata(data)
+		}).catch((err) => {
+			console.log(err)
+		})
+		setLoading(false)
 	}
 
 	useEffect(() => {
