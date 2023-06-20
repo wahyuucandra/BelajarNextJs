@@ -1,0 +1,27 @@
+
+generator client{
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider     = "sqlite"
+    url          = "file:./dev.db"
+}
+
+model Country {
+    id          String      @id @default(cuid())
+    name        String
+    slug        String      @unique
+    image_url    String 
+    resorts Resort[]
+}
+
+model Resort {
+    id          String @id @default(cuid())  
+    name        String
+    slug        String
+    image_url    String
+    description String
+    country     Country? @relation(fields: [country_slug], references: [slug])
+    country_slug   String
+}
