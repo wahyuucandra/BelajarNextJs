@@ -9,6 +9,7 @@ export const Sidebar = () => {
 	// 2. check if the country parameter and filter the data accordingly
 	const url = "/api/resort/countries"
 	const [data, setdata] = useState([]);
+	const [loading, setLoading] = useState(false)
 
 	const getCountries = async () => {
 		setLoading(true)
